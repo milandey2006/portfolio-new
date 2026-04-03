@@ -92,8 +92,10 @@ export default function NowPlaying() {
               rel="noopener noreferrer"
               className="truncate text-[14px] font-semibold text-primary hover:text-red-500 transition-colors leading-tight"
             >
-              {title || 'Not Listening'}
+              {isPlaying ? 'Now Listening to' : 'Last Played'} &nbsp;
+              {title || 'Nothing'}
             </a>
+            
             {isPlaying && <AudioVisualizer />}
           </div>
           <p className="truncate text-[12px] text-muted-foreground font-medium">
