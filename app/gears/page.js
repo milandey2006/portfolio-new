@@ -7,7 +7,7 @@ import { Laptop, Keyboard, Mouse, ArrowUpRight } from "lucide-react"
 export default function Gears() {
   const hardware = [
     {
-      name: "Macbook Pro M1 14\"",
+      name: "Macbook Air M1 13\"",
       category: "Laptop",
       icon: Laptop,
       link: "https://www.apple.com/macbook-pro-14-and-16/",
@@ -19,7 +19,7 @@ export default function Gears() {
       link: "https://www.amazon.in/LG-27-inch-Monitor-FreeSync/dp/B08J5Y9TWF",
     },
     {
-      name: "Keychron K2V2",
+      name: "Portronics Hydra 10",
       category: "Keyboard",
       icon: Keyboard,
       link: "https://keychron.in/product/keychron-k2-v-2/",
@@ -31,16 +31,16 @@ export default function Gears() {
       link: "https://www.amazon.in/Logitech-Master-Advanced-Wireless-Mouse/dp/B07VWXWP8R",
     },
      {
-      name: "iPhone 13 Mini",
+      name: "iPhone 13",
       category: "Phone",
       icon: FiSmartphone,
       link: "https://www.apple.com/shop/buy-iphone/iphone-13",
     },
      {
-      name: "Airpods Pro",
+      name: "Boat Wired",
       category: "Audio",
       icon: FiHeadphones,
-      link: "https://www.apple.com/airpods-pro/",
+      link: "https://www.boat-lifestyle.com/products/bassheads-100-in-ear-earphones",
     }
   ]
 

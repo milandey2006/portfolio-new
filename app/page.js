@@ -4,11 +4,10 @@ import Link from "next/link"
 import { Check, Copy } from "lucide-react"
 import { 
   SiYoutubemusic, SiJavascript, SiTypescript, SiReact, SiNextdotjs, 
-  SiNodedotjs, SiExpress, SiTailwindcss, SiPostgresql, SiPrisma, 
-  SiDocker, SiRedis, SiReactquery, SiStorybook, 
-  SiTimescale, SiZod 
+  SiNodedotjs, SiExpress, SiTailwindcss, SiPostgresql, SiMongodb,
+  SiFramer, SiSupabase, SiShadcnui, SiFirebase, SiVercel,
+  SiStripe, SiResend, SiDrizzle
 } from "react-icons/si"
-import { FaAws } from "react-icons/fa"
 import { useState } from "react"
 import { SocialLinks } from "@/components/social-links"
 import { Footer } from "@/components/footer"
@@ -136,7 +135,7 @@ export default function Home() {
           </div>
         </section>
 
-        <ProjectsSection limit={2} />
+        <ProjectsSection limit={3} />
 
         {/* Tech Stack Section */}
         <section className="flex flex-col gap-6 mt-6">
@@ -154,14 +153,15 @@ export default function Home() {
             <TechBadge icon={SiExpress} name="Express.js" />
             <TechBadge icon={SiTailwindcss} name="TailwindCSS" />
             <TechBadge icon={SiPostgresql} name="PostgreSQL" />
-            <TechBadge icon={SiPrisma} name="Prisma" />
-            <TechBadge icon={SiDocker} name="Docker" />
-            <TechBadge icon={FaAws} name="AWS" />
-            <TechBadge icon={SiRedis} name="Redis" />
-            <TechBadge icon={SiReactquery} name="TanStack Query" />
-            <TechBadge icon={SiStorybook} name="Storybook" />
-            <TechBadge icon={SiTimescale} name="TimescaleDB" />
-            <TechBadge icon={SiZod} name="Zod" />
+            <TechBadge icon={SiMongodb} name="MongoDB" />
+            <TechBadge icon={SiFramer} name="Framer Motion" />
+            <TechBadge icon={SiSupabase} name="Supabase" />
+            <TechBadge icon={SiShadcnui} name="Shadcn UI" />
+            <TechBadge icon={SiFirebase} name="Firebase" />
+            <TechBadge icon={SiVercel} name="Vercel" />
+            <TechBadge icon={SiStripe} name="Stripe" />
+            <TechBadge icon={SiResend} name="Resend" />
+            <TechBadge icon={SiDrizzle} name="Drizzle ORM" />
           </div>
 
           <p className="text-muted text-[14px] font-medium mt-1">
@@ -169,7 +169,7 @@ export default function Home() {
           </p>
         </section>
 
-        {/* Development Section */}
+        {/* Development Section
         <section className="flex flex-col gap-6 mt-12">
           <h2 className="text-xl font-bold tracking-tight">Development</h2>
           <div className="flex flex-col gap-3">
@@ -190,7 +190,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Personal Section */}
+        Personal Section
         <section className="flex flex-col gap-6 mt-12">
           <h2 className="text-xl font-bold tracking-tight">Personal</h2>
           <div className="flex flex-col gap-3">
@@ -208,7 +208,7 @@ export default function Home() {
               </Link>
             ))}
           </div>
-        </section>
+        </section> */}
       </div>
 
       <Footer />

@@ -10,7 +10,7 @@ export default function NowPlaying() {
 
   const fetchNowPlaying = async () => {
     try {
-      const res = await fetch('/api/now-playing')
+      const res = await fetch(`/api/now-playing?_=${Date.now()}`)
       const json = await res.json()
       setData(json)
     } catch (e) {
@@ -22,7 +22,7 @@ export default function NowPlaying() {
 
   useEffect(() => {
     fetchNowPlaying()
-    const interval = setInterval(fetchNowPlaying, 30000)
+    const interval = setInterval(fetchNowPlaying, 15000)
     return () => clearInterval(interval)
   }, [])
 

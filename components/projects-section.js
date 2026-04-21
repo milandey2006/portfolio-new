@@ -8,38 +8,74 @@ import { FiGithub as Github, FiGlobe as Globe } from 'react-icons/fi'
 const projects = [
   {
     id: 1,
-    title: "F2F Trade - Face to Face Crypto Exchange",
-    description: "Crypto Listing platform for Face to Face crypto traders to find buyers and sellers around their location with Mobile and KYC verification for security",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Mongoose", "NextAuth.js"],
-    liveUrl: "#",
-    repoUrl: "#",
-    previewImage: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?w=600&h=400&fit=crop"
+    title: "PeixEdu | Most Trusted Name In Finance Education",
+    description: "A leading institute providing expert-led coaching for global finance credentials like CMA, CPA, and ACCA. Empowering professionals to achieve international success through results-driven programs.",
+    tags: ["React", "Next.js", "Tailwind CSS", "Educational Platform"],
+    liveUrl: "https://www.peixedu.com/",
+    repoUrl: null,
+    previewImage: "/projects/peix.png"
   },
   {
     id: 2,
-    title: "DSA Stats - Cross Platform DSA Analytics",
-    description: "DSA stats analytics platform with leaderboard and shareable profile cards. Ranked 19th globally on product hunt! Features include real-time analytics and detailed statistics.",
-    tags: ["React", "TypeScript", "Tailwind CSS", "MongoDB", "Mongoose", "Express.js"],
-    liveUrl: "#",
-    repoUrl: "#",
-    previewImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
+    title: "MSE Logistics | Expert B2B Supply Chain Solutions",
+    description: "Comprehensive end-to-end logistics and global supply chain management focusing on precision and real-time intelligence for B2B corridor solutions.",
+    tags: ["Next.js", "B2B Logistics", "Supply Chain", "Real-time Intelligence"],
+    liveUrl: "https://mselogistics.co.in/",
+    repoUrl: null,
+    previewImage: "/projects/mse.png"
   },
   {
     id: 3,
-    title: "GitLeet - Combine Github and Leetcode Heatmap and stats",
-    description: "Built a platform that integrates Github and Leetcode data to provide insights and visualizations on users' productivity, by visualizing it with Heatmaps and combined stats.",
-    tags: ["React", "TypeScript", "Tailwind CSS", "Shadcn", "Web3js", "Jupiter API"],
-    liveUrl: "#",
-    repoUrl: "#",
-    previewImage: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=600&h=400&fit=crop"
-  }
+    title: "Champion Security System | Premier Surveillance Solutions",
+    description: "Expert CCTV installation and 24/7 monitoring services. Offering STQC and BIS-certified surveillance systems ensuring maximum safety and reliability.",
+    tags: ["Surveillance", "Security", "CCTV", "Monitoring"],
+    liveUrl: "https://championsecuritysystem.com/",
+    repoUrl: null,
+    previewImage: "/projects/css.png"
+  },
+  {
+    id: 4,
+    title: "Glass Mate Media | Creative Visual Agency",
+    description: "A visual storytelling agency focused on 'Stories That Sell'. Specializing in video production, Reels, and digital branding for high-impact content.",
+    tags: ["Video Production", "Branding", "Creative Agency", "Media"],
+    liveUrl: "https://glassmatemedia.com/",
+    repoUrl: null,
+    previewImage: "/projects/gmm.png"
+  },
+  {
+    id: 5,
+    title: "Atul Bali | Actor, Writer, and Mentor",
+    description: "Professional portfolio and mentoring platform for Atul Bali. Combining theatre traditions and spiritual insights for transformative learning experiences.",
+    tags: ["Portfolio", "Mentorship", "Personal Brand", "Theatre"],
+    liveUrl: "https://atulbali.in/",
+    repoUrl: null,
+    previewImage: "/projects/atul.png"
+  },
+  {
+    id: 6,
+    title: "AquaMaritime Logistics | Global Freight & 3PL Solutions",
+    description: "20 years of excellence in sea, air, and project cargo. Providing seamless 3PL and door-to-door solutions globally for diverse businesses.",
+    tags: ["Maritime", "Logistics", "Freight", "3PL"],
+    liveUrl: "https://aquamaritime.in/",
+    repoUrl: null,
+    previewImage: "/projects/aqua.png"
+  },
+  {
+    id: 7,
+    title: "TruHauL Logistics | Trusted Global Transport",
+    description: "Delivering beyond borders with comprehensive road, air, and sea freight services. Specializing in secure warehousing and trusted transport solutions.",
+    tags: ["Transport", "Freight", "Global Logistics", "Warehousing"],
+    liveUrl: "https://truhl.com/",
+    repoUrl: null,
+    previewImage: "/projects/truhaul.png"
+  },
 ]
 
 export default function ProjectsSection({ limit }) {
   const [hoveredImage, setHoveredImage] = useState(null)
   
-  // Smooth spring physics for the floating image
-  const springConfig = { stiffness: 400, damping: 25 }
+  // Slower, more relaxed spring physics for the floating image
+  const springConfig = { stiffness: 150, damping: 25 }
   const mouseX = useSpring(0, springConfig)
   const mouseY = useSpring(0, springConfig)
 
@@ -69,7 +105,11 @@ export default function ProjectsSection({ limit }) {
           <div 
             key={project.id}
             className="group flex flex-col gap-4 rounded-md border border-border p-6 transition-colors relative cursor-pointer dark:hover:border-neutral-600"
-            onMouseEnter={() => setHoveredImage(project.previewImage)}
+            onMouseEnter={(e) => {
+              mouseX.jump(e.clientX + 15)
+              mouseY.jump(e.clientY + 15)
+              setHoveredImage(project.previewImage)
+            }}
             onMouseLeave={() => setHoveredImage(null)}
           >
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
@@ -85,16 +125,18 @@ export default function ProjectsSection({ limit }) {
                   <Globe className="h-[14px] w-[14px]" />
                   Visit
                 </a>
-                <a 
-                  href={project.repoUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-1.5 rounded-[4px] bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-3 py-1.5 text-[13px] font-medium transition-opacity hover:opacity-90"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Github className="h-[14px] w-[14px]" />
-                  Code
-                </a>
+                {project.repoUrl && project.repoUrl !== '#' && (
+                  <a 
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-1.5 rounded-[4px] bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-3 py-1.5 text-[13px] font-medium transition-opacity hover:opacity-90"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Github className="h-[14px] w-[14px]" />
+                    Code
+                  </a>
+                )}
               </div>
             </div>
 
@@ -134,7 +176,7 @@ export default function ProjectsSection({ limit }) {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            transition={{ type: "spring", stiffness: 150, damping: 25 }}
             className="pointer-events-none fixed top-0 left-0 z-[100] h-38 w-[240px] overflow-hidden rounded-sm border border-border bg-background shadow-2xl"
             style={{
               x: mouseX,
